@@ -13,14 +13,23 @@
 		<link type="text/css" rel="stylesheet" href="reset.css"/>
 		<link type="text/css" rel="stylesheet" href="960_12_col.css"/>
 		<link type="text/css" rel="stylesheet" href="style.css"/>
+
+		<!--Leap Motion plugins-->
+		<script src="http://js.leapmotion.com/leap-0.6.3.js"></script>
+		<script src="http://js.leapmotion.com/leap-plugins-0.1.8.js"></script>
+		<script type="text/javascript" src="leap.js"></script>
+
+
+
 	</head>
 	<body>
+
 		<!-- fork me on github -->
 		<!--a href="https://github.com/SimonWallner/uit-fitts-law"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a-->
 
 
 		<div class="container_12">
-			<h1 class="prefix_1 grid_9">An Interactive Visualisation of <strong>Fitts's Law</strong> with JavaScript and <strong>D3</strong></h1>
+			<h1 class="prefix_1 grid_9">An Interactive Visualisation of <strong>Fitts's Law</strong> with JavaScript, <strong>D3, </strong>and <strong>Leap Motion</strong></h1>
 			<!--div class="prefix_1 grid_7">
 				<p>
 					Fitts's Law is one of the cornerstones of user interface research. In 1954, Fitts described the relationship between the target distance, width, and time needed for a target acquisition task. This later became known as <strong>Fitts's law</strong> [Fitts 1954].
@@ -98,14 +107,14 @@
 			<div class="grid_3">
 				 <div id="plot-positions" class="sans"></div>
 				<p class="caption">
-					fig. 1b: Deviation form straight path over path distance in px.
+					fig. 1b: [mouse only] Deviation from straight path over path distance in px.
 				</p>
 			</div>
 
 			<div class="grid_3">
 				<div id="plot-velocities" class="sans"></div>
 				<p class="caption">
-					fig. 1c: Movement speed in px/ms over time in ms.
+					fig. 1c: [mouse only] Movement speed in px/ms over time in ms.
 				</p>
 			</div>
 
@@ -125,8 +134,7 @@
 
 
 
-			<div class="clear"></div>
-
+			<div class="clear"></d
 			<div id="data" class="prefix_1 grid_7"></div>
 			<div class="clear"></div>
 
@@ -220,7 +228,6 @@
 			</div>
 
 			<script type="text/javascript" src="fitts-law.js"></script>
-
 		</div> <!-- container12 end -->
 	</body>
 </html>
