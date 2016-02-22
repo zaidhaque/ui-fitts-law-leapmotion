@@ -1,10 +1,10 @@
-var cats = {};
+var cursors = {};
 
 var controller = Leap.loop({enableGestures: true}, function(frame){
 
   frame.hands.forEach(function(hand, index) {
-    var cat = ( cats[index] || (cats[index] = new Cat()) );    
-    cat.setTransform(hand.screenPosition(), hand.roll());
+    var cursor = ( cursors[index] || (cursors[index] = new Cursor()) );    
+    cursor.setTransform(hand.screenPosition(), hand.roll());
     console.log(hand)
   });
 
@@ -28,19 +28,19 @@ var controller = Leap.loop({enableGestures: true}, function(frame){
   }
 }).use('screenPosition', {scale: 0.3});
 
-var Cat = function() {
-  var cat = this;
+var Cursor = function() {
+  var cursor = this;
   var img = document.createElement('img');
   img.src = 'http://www.iconsdb.com/icons/preview/orange/square-xxl.png';
   img.width = "10"
   img.height = "10"
   img.style.position = 'absolute';
   img.onload = function () {
-    cat.setTransform([window.innerWidth/2,window.innerHeight/2], 0);
+    cursor.setTransform([window.innerWidth/2,window.innerHeight/2], 0);
     document.body.appendChild(img);
   }
   
-  cat.setTransform = function(position, rotation) {
+  Cursor.setTransform = function(position, rotation) {
 
     img.style.left = position[0] - img.width  / 2 + 'px';
     img.style.top  = position[1] - img.height / 2 + 'px';
@@ -59,7 +59,7 @@ var Cat = function() {
 
 };
 
-cats[0] = new Cat();
+cursors[0] = new Cursor();
 
 function simulateClick(x,y){
   var ev = document.createEvent("MouseEvent");
