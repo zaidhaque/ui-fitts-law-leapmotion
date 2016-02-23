@@ -29,7 +29,7 @@ var Cursor = function() {
     img.style.left = position[0] - img.width  / 2 + 'px';
     img.style.top  = position[1] - img.height / 2 + 'px';
 
-  img.style.transform = 'rotate(' + -rotation + 'rad)';
+    img.style.transform = 'rotate(' + -rotation + 'rad)';
   
     img.style.webkitTransform = img.style.MozTransform = img.style.msTransform =
     img.style.OTransform = img.style.transform;
