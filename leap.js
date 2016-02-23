@@ -15,7 +15,7 @@ Leap.loop(function(frame) {
 var Cursor = function() {
   var cursor = this;
   var img = document.createElement('img');
-  img.src = 'http://www.iconsdb.com/icons/preview/orange/square-xxl.png';
+  img.src = 'cursor.png';
   img.width = "10"
   img.height = "10"
   img.style.position = 'absolute';
