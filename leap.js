@@ -15,7 +15,7 @@ Leap.loop(function(frame) {
 var Cursor = function() {
   var cursor = this;
   var img = document.createElement('img');
-  img.src = 'http://www.iconsdb.com/icons/preview/orange/square-xxl.png';
+  img.src = 'cursor.png';
   img.width = "10"
   img.height = "10"
   img.style.position = 'absolute';
@@ -29,8 +29,12 @@ var Cursor = function() {
     img.style.left = position[0] - img.width  / 2 + 'px';
     img.style.top  = position[1] - img.height / 2 + 'px';
 
-  img.style.transform = 'rotate(' + -rotation + 'rad)';
-  
+    img.style.transform = 'rotate(' + -rotation + 'rad)';
+
+    if (rotation < -1) {
+     // window.alert("cat is rotating!")
+     simulateClick(position[0]+10, position[1]+10)
+    }  
     img.style.webkitTransform = img.style.MozTransform = img.style.msTransform =
     img.style.OTransform = img.style.transform;
 
@@ -107,28 +111,28 @@ Leap.loopController.setBackground(true)
 
 // cursors[0] = new Cursor();
 
-// function simulateClick(x,y){
-//   var ev = document.createEvent("MouseEvent");
-//   var el = document.elementFromPoint(x,y);
-//   ev.initMouseEvent(
-//       "mousedown",
-//       true /* bubble */, false /* cancelable */,
-//       window, null,
-//       x, y, x, y, /* coordinates */
-//       false, false, false, false, /* modifier keys */
-//       0 /*left*/, null
-//   );
-//   el.dispatchEvent(ev);
-//   ev.initMouseEvent(
-//       "mouseup",
-//       true /* bubble */, false /* cancelable */,
-//       window, null,
-//       x, y, x, y, /* coordinates */
-//       false, false, false, false, /* modifier keys */
-//       0 /*left*/, null
-//   );
-//   el.dispatchEvent(ev);
-// }
+function simulateClick(x,y){
+  var ev = document.createEvent("MouseEvent");
+  var el = document.elementFromPoint(x,y);
+  ev.initMouseEvent(
+      "mousedown",
+      true /* bubble */, false /* cancelable */,
+      window, null,
+      x, y, x, y, /* coordinates */
+      false, false, false, false, /* modifier keys */
+      0 /*left*/, null
+  );
+  el.dispatchEvent(ev);
+  ev.initMouseEvent(
+      "mouseup",
+      true /* bubble */, false /* cancelable */,
+      window, null,
+      x, y, x, y, /* coordinates */
+      false, false, false, false, /* modifier keys */
+      0 /*left*/, null
+  );
+  el.dispatchEvent(ev);
+}
 
 // // This allows us to move the cat even whilst in an iFrame.
 // Leap.loopController.setBackground(true)
